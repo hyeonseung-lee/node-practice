@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<h1>메인 페이지</h1>
+{% if writings %}
+
+<table>
+    <tr>
+        <th>글 제목</th>
+        <th>글 내용</th>
+        <th>작성일</th>
+    </tr>
+    {% for writing in writings %}
+    <tr>
+        <th>
+            <a href="/detail/{{writing.id}}">{{writing.title}}</a>
+        </th>
+        <th>{{writing.contents}}</th>
+        <th>{{writing.date}}</th>
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+{% else %}
+<p>작성된 글이 없습니다.</p>
+{% endif %} {% endblock %}
